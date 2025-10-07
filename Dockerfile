@@ -1,13 +1,18 @@
 FROM alpine:latest
 
-RUN apk add --no-cache icecast
+RUN apk add --no-cache icecast && \
+    adduser -D -H icecast && \
+    mkdir -p /var/log/icecast && \
+    chown -R icecast /var/log/icecast && \
+    chown -R icecast /etc/icecast.xml
+
+USER icecast
 
 COPY icecast.xml /etc/icecast.xml
 
 EXPOSE 8000
 
 CMD ["icecast", "-c", "/etc/icecast.xml"]
-
 
 
 
