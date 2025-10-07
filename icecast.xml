@@ -34,4 +34,9 @@
     <loglevel>3</loglevel>
     <logsize>10000</logsize>
   </logging>
+
+  <!-- Adicionando o 'changeowner' dentro da tag 'icecast' -->
+  <changeowner>
+    <user>icecast</user>
+  </changeowner>
 </icecast>
